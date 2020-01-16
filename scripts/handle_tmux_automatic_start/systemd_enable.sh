@@ -19,10 +19,10 @@ template() {
 	[Service]
 	Type=forking
 	Environment=DISPLAY=:0
-	ExecStart=/usr/bin/tmux ${systemd_tmux_server_start_cmd}
+	ExecStart=/usr/bin/env tmux ${systemd_tmux_server_start_cmd}
 
 	ExecStop=${HOME}/.tmux/plugins/tmux-resurrect/scripts/save.sh
-	ExecStop=/usr/bin/tmux kill-server
+	ExecStop=/usr/bin/env tmux kill-server
 	KillMode=none
 
 	RestartSec=2
